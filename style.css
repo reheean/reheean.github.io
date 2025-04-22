@@ -92,11 +92,12 @@ body {
     border: 4px solid #ffecf0;
     transform: scale(1.2);
     transition: transform 0.3s;
+    margin-bottom: 20px;
   }
   .social-links {
     list-style: none;
     padding: 0;
-    margin: 10px 0 0;
+    margin: 25px 0 0;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -181,5 +182,26 @@ body {
   }
   .animate-wave {
     animation: wave 1s ease-in-out;
+  }
+ 
+  .pink-link {
+    color: #ff6f87;
+    text-decoration: none;
+  }
+  .pink-link:hover {
+    color: #ffb3ba;
+    text-decoration: underline;
+  }
+
+.about-container {
+    max-width: 800px; /* Creates whitespace on sides */
+    margin: 0 auto; /* Centers the content */
+    padding: 0 40px; /* Additional padding */
+  }
+  
+  #about p {
+    font-size: 1.2em; /* Larger text */
+    line-height: 1.6; /* Better line spacing */
+    text-align: left; /* Left-aligned for readability */
   }
   
