@@ -181,4 +181,11 @@ body {
   .animate-wave {
     animation: wave 1s ease-in-out;
   }
-  
+  .pink-link {
+    color: #ff6f87;
+    text-decoration: none;
+  }
+  .pink-link:hover {
+    color: #ffb3ba;
+    text-decoration: underline;
+  }
