@@ -18,14 +18,12 @@ body {
     top: 0;
     z-index: 1000;
   }
-  
   .nav-left .logo {
     font-size: 1.5em;
     font-weight: bold;
     text-decoration: none;
     color: #333;
   }
-  
   .nav-menu {
     list-style: none;
     display: flex;
@@ -33,34 +31,24 @@ body {
     margin: 0;
     padding: 0;
   }
-  
   .nav-menu li a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.3s;
   }
-  
   .nav-menu li a:hover {
     color: #ff6f87;
   }
-  
   /* Active Nav Link with a Blush, Peachy Pink Blink Effect */
   .nav-link.active {
     animation: blink 0.5s ease;
     color: #ff6f87;
   }
-  
   @keyframes blink {
-    0% {
-      background-color: transparent;
-    }
-    50% {
-      background-color: rgba(255, 111, 135, 0.3);
-    }
-    100% {
-      background-color: transparent;
-    }
+    0% { background-color: transparent; }
+    50% { background-color: rgba(255, 111, 135, 0.3); }
+    100% { background-color: transparent; }
   }
   
   /* Kitten Widget Styling */
@@ -73,38 +61,36 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    transform: scale(1.2); /* Zoom in by 20% */
+    object-fit: cover;
   }
   
-  /* Hero Section with Gradient Background */
+  /* Hero Section */
   .hero {
     text-align: center;
     padding: 100px 20px;
     background: linear-gradient(135deg, #ffb3ba, #ffdfba);
   }
-  
   .hero h1 {
     font-size: 2.8em;
     margin-bottom: 10px;
   }
-  
   .hero p {
     font-size: 1.3em;
   }
   
-  /* Profile Section Under Hero */
+  /* Profile Section */
   .profile-section {
     margin-top: 30px;
     text-align: center;
   }
-  
   .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 200px; /* Increased size */
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #ffecf0;
   }
-  
   .social-links {
     list-style: none;
     padding: 0;
@@ -113,30 +99,55 @@ body {
     justify-content: center;
     gap: 15px;
   }
-  
   .social-links li img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
-  
   .social-links li img:hover {
     transform: scale(1.1);
   }
   
-  /* General Section Styling */
+  /* Section Styling */
   section {
     padding: 60px 20px;
     text-align: center;
   }
-  
   section h2 {
     font-size: 2em;
     margin-bottom: 20px;
   }
   
-  /* Publication Articles */
+  /* Timeline Boxes for Education & Work Experience */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .timeline-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  .timeline-box h3 {
+    margin: 0 0 10px;
+  }
+  .timeline-box h3 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .timeline-box h3 a:hover {
+    color: #ff6f87;
+  }
+  
+  /* Publications Section */
   .publication {
     margin: 20px auto;
     max-width: 800px;
@@ -146,12 +157,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
-  
   .publication h3 {
     margin: 0 0 10px;
   }
   
-  /* Footer Styling */
+  /* Footer */
   footer {
     background: #ffecf0;
     text-align: center;
@@ -161,31 +171,13 @@ body {
   
   /* Wave Animation for the Kitten */
   @keyframes wave {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(15deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(-15deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
   }
-  
   .animate-wave {
     animation: wave 1s ease-in-out;
   }
-  .pink-link {
-    color: #ff6f87;
-    text-decoration: none;
-  }
-  .pink-link:hover {
-    color: #ffb3ba;
-    text-decoration: underline;
-  }
+  

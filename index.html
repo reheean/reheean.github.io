@@ -3,27 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rodoshie Reheean</title>
+    <title>Rodoshie Reheean - Academic Website</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <div class="nav-left">
-          <a href="#home" class="logo">Rodoshie Reheean</a>
-        </div>
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#research" class="nav-link">Research Interests</a></li>
           <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#publications" class="nav-link">Research Work</a></li>
+          <li><a href="#work" class="nav-link">Work Experience</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
         </ul>
-        <!-- Updated Kitten Widget Using a Colab-style Waving Kitten GIF -->
+        <!-- Waving Kitten Widget -->
         <div class="kitten-widget" id="kitten-widget">
           <img
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGwzaDIxcXNranBzZjcxczQxc3U5dDFyNG1jamFocjZqZHg2bmJ5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vSshnLWTe7W9y/giphy.gif"
+            src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
             alt="Waving Kitten"
           />
         </div>
@@ -32,12 +28,16 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
-      <p>Rodoshie Reheean</p>
-      
-      <!-- Profile Section with Circular Picture and Social Links -->
+      <h1>Hi, I'm Rodoshie Reheean</h1>
+      <p>
+        Incoming Ph.D. student in Computer Science at Indiana University
+        Bloomington
+      </p>
+
+      <!-- Profile Section with Larger Circular Picture and Social Links -->
       <div class="profile-section">
         <img
-          src="images\IMG_20250422_230100.jpg"
+          src="images/IMG_20250422_230100.jpg"
           alt="Profile Picture"
           class="profile-img"
         />
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="linkedin.com/in/rodoshie-reheean-79203021b" target="_blank">
+            <a href="https://linkedin.com/in/rodoshie-reheean-79203021b" target="_blank">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
                 alt="LinkedIn"
@@ -67,9 +67,17 @@
             </a>
           </li>
           <li>
-            <a href="https://scholar.google.com/citations?user=LD_z62EAAAAJ&hl=en&oi=ao" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/000000/google-scholar.png" alt="Google Scholar" />
-              </a>                          
+            <a
+              href="https://scholar.google.com/citations?user=LD_z62EAAAAJ&hl=en&oi=ao"
+              target="_blank"
+            >
+              <!-- Updated flat Google Scholar icon from Flaticon -->
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/5187/5187341.png"
+                alt="Google Scholar"
+                style="width:32px; height:32px;"
+              />
+            </a>
           </li>
         </ul>
       </div>
@@ -77,27 +85,90 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I am an incoming Ph.D. student in Computer Science at Indiana University Bloomington, where I will be working under the supervision of 
-          <a href="https://homes.soic.indiana.edu/hyungsub/" target="_blank" rel="noopener noreferrer" class="pink-link">Prof. Hyungsub Kim.</a> 
-          I'm currently completing my undergraduate studies in Computer Science at BRAC University in Dhaka, Bangladesh.
-        </p>        
-
-    <!-- Research Interests Section -->
-    <section id="research">
-      <h2>Research Interests</h2>
+      <h2>About Me</h2>
       <p>
-        System security, Cyber Security, Human-Computer Interaction, Usuable Security, and Robotics.
+        I am passionate about computer security, human‑computer interaction,
+        usable privacy, robotics, and AI. I believe in blending professionalism
+        with a unique, kyute aesthetic.
       </p>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education Section with Timeline Boxes -->
     <section id="education">
-      <h2>Education &amp; Experience</h2>
-      <p>B.Sc. in Computer Science, [Your University]</p>
-      <p>M.Sc. in Computer Science, [Your University]</p>
-      <p>Ph.D. Student at Indiana University Bloomington</p>
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-box">
+          <h3>
+            <a
+              href="https://www.bracu.ac.bd/"
+              target="_blank"
+              title="Visit Dhaka Brac University"
+              >Dhaka Brac University</a
+            >
+          </h3>
+          <p><strong>Degree:</strong> B.Sc. in Computer Science and Engineering</p>
+          <p><strong>Duration:</strong> 2021 - Present</p>
+          <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+        </div>
+        <div class="timeline-box">
+          <h3>
+            <a
+              href="https://example-hsc.edu/"
+              target="_blank"
+              title="Visit Shahid Bir Uttam Lt. Anwar Girls' College"
+              >Shahid Bir Uttam Lt. Anwar Girls' College</a
+            >
+          </h3>
+          <p>
+            <strong>Qualification:</strong> Higher Secondary Certificate (HSC)
+            in Science
+          </p>
+          <p><strong>Duration:</strong> 2018 - 2020</p>
+          <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+        </div>
+        <div class="timeline-box">
+          <h3>
+            <a
+              href="https://example-ssc.edu/"
+              target="_blank"
+              title="Visit BIAM Model School & College"
+              >BIAM Model School & College</a
+            >
+          </h3>
+          <p>
+            <strong>Qualification:</strong> Secondary School Certificate (SSC)
+            in Science
+          </p>
+          <p><strong>Duration:</strong> 2017</p>
+          <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-box">
+          <h3>
+            Student Tutor (UTA)
+            <span class="role-divider">|</span>
+            <a
+              href="https://www.bracu.ac.bd/"
+              target="_blank"
+              title="Visit Brac University"
+              >Brac University</a
+            >
+          </h3>
+          <p><strong>Duration:</strong> 02/2024 - Present</p>
+          <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+          <p>
+            Tutoring students in Data Structures (CSE220) for three consecutive
+            semesters.
+          </p>
+        </div>
+        <!-- Add additional work experience boxes as needed -->
+      </div>
     </section>
 
     <!-- Publications Section -->
@@ -109,8 +180,8 @@
           Adversarial Object Evasion Attacks
         </h3>
         <p>
-          Co-authors: Xinyao Ma, <strong>Your Name</strong>, Huadi Zhu, Jean Camp, Ming Li,
-          Xiaojing Liao (ACM CCS 2024)
+          Co‑authors: Xinyao Ma, <strong>Rodoshie Reheean</strong>, Huadi Zhu, Jean
+          Camp, Ming Li, Xiaojing Liao (ACM CCS 2024)
         </p>
       </article>
       <article class="publication">
@@ -119,17 +190,18 @@
           Disclosure Guidelines
         </h3>
         <p>
-          Co-authors: Yue Xiao, <strong>Your Name</strong>, Qin Yue, Fares Fahad S Alharbi, Luyi Xing,
-          Xiaojing Liao (ACM CCS 2024)
+          Co‑authors: Yue Xiao, <strong>Rodoshie Reheean</strong>, Qin Yue, Fares Fahad S
+          Alharbi, Luyi Xing, Xiaojing Liao (ACM CCS 2024)
         </p>
       </article>
       <article class="publication">
         <h3>
-          iHunter: Hunting Privacy Violations at Scale in the Software Supply Chain on iOS
+          iHunter: Hunting Privacy Violations at Scale in the Software Supply Chain
+          on iOS
         </h3>
         <p>
-          Co-authors: Dexin Liu, Yue Xiao, <strong>Your Name</strong>, Kaitao Xie, Xiaolong Bai,
-          Shikun Zhang, Luyi Xing (USENIX Security 2024)
+          Co‑authors: Dexin Liu, Yue Xiao, <strong>Rodoshie Reheean</strong>, Kaitao
+          Xie, Xiaolong Bai, Shikun Zhang, Luyi Xing (USENIX Security 2024)
         </p>
       </article>
       <article class="publication">
@@ -137,15 +209,15 @@
           Cquirrel: Continuous Query Processing Over Acyclic Relational Schemas
         </h3>
         <p>
-          Co-authors: Qichen Wang, <strong>Your Name</strong>, Danish Alsayed, Ke Yi, Bin Wu,
-          Feifei Li, Chaoqun Zhan (VLDB Endowment, 2021)
+          Co‑authors: Qichen Wang, <strong>Rodoshie Reheean</strong>, Danish Alsayed, Ke
+          Yi, Bin Wu, Feifei Li, Chaoqun Zhan (VLDB Endowment, 2021)
         </p>
       </article>
     </section>
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 My Academic Website. All rights reserved.</p>
+      <p>&copy; 2025 Rodoshie Reheean. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
