@@ -1,21 +1,54 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const kitten = document.getElementById('kitten-widget');
+document.addEventListener("DOMContentLoaded", () => {
+    // Kitten widget interactivity
+    const kitten = document.getElementById("kitten-widget");
   
-    // Function to trigger the wave animation
     function triggerWave() {
-      kitten.classList.add('animate-wave');
-      // Remove the animation class after 1 second so it can be triggered again later
-      setTimeout(() => kitten.classList.remove('animate-wave'), 1000);
+      kitten.classList.add("animate-wave");
+      setTimeout(() => {
+        kitten.classList.remove("animate-wave");
+      }, 1000);
     }
   
-    // Randomly trigger the wave every 15-30 seconds for an unexpected pop-up effect
+    // Trigger wave on mouse enter
+    kitten.addEventListener("mouseenter", triggerWave);
+  
+    // Randomly trigger the wave at intervals
     setInterval(() => {
-      // Choose a random delay between 10,000 and 30,000 milliseconds
       const randomDelay = Math.floor(Math.random() * 20000) + 10000;
       setTimeout(triggerWave, randomDelay);
     }, 15000);
   
-    // Also trigger the wave immediately upon hovering for added interactivity
-    kitten.addEventListener('mouseenter', triggerWave);
+    // Smooth scrolling for nav links
+    const navLinks = document.querySelectorAll(".nav-link");
+  
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  
+    // Highlight active nav link based on scroll position
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", function () {
+      let scrollPos = window.pageYOffset;
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + sectionId) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    });
   });
   
