@@ -1,82 +1,121 @@
-/* General styles */
+/* Global Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #fafafa;
+    background: #fafafa;
     color: #333;
   }
   
-  /* Header and navigation */
-  header {
-    background-color: #ffecf0;
-    padding: 20px 0;
-    text-align: center;
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffecf0;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
   
-  nav ul {
+  .nav-left .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .nav-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    gap: 20px;
     margin: 0;
     padding: 0;
   }
   
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
+  .nav-menu li a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s;
   }
   
-  /* Hero Section */
+  .nav-menu li a:hover {
+    color: #ff6f87;
+  }
+  
+  /* Hero Section with gradient background */
   .hero {
     text-align: center;
     padding: 100px 20px;
     background: linear-gradient(135deg, #ffb3ba, #ffdfba);
-    border-bottom: 2px solid #f3f3f3;
   }
   
   .hero h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-bottom: 10px;
   }
   
   .hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.3em;
   }
   
-  /* Button styling */
-  button {
-    background-color: #ff99a0;
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 1em;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ff6f87;
-  }
-  
-  /* Section styling */
+  /* Section Styling */
   section {
     padding: 60px 20px;
     text-align: center;
   }
   
-  /* Footer styling */
+  section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  /* Publication Articles */
+  .publication {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .publication h3 {
+    margin: 0 0 10px;
+  }
+  
+  /* Footer Styling */
   footer {
-    background-color: #ffecf0;
-    padding: 10px 0;
+    background: #ffecf0;
     text-align: center;
+    padding: 15px;
     font-size: 0.9em;
+  }
+  
+  /* Kitten Widget Styling */
+  .kitten-widget {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://placekitten.com/50/50');
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Wave Animation for the Kitten */
+  @keyframes wave {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(15deg); }
+    50%  { transform: rotate(0deg); }
+    75%  { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .animate-wave {
+    animation: wave 1s ease-in-out;
   }
   

@@ -1,46 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Kyute Academic Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
+      <nav class="navbar">
+        <div class="nav-left">
+          <a href="#home" class="logo">MyAcademicSite</a>
+        </div>
+        <ul class="nav-menu">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#publications">Publications</a></li>
         </ul>
+        <!-- Kitten Widget for extra cute interactivity -->
+        <div class="kitten-widget" id="kitten-widget"></div>
       </nav>
     </header>
 
+    <!-- Home Section: Introduction -->
     <section id="home" class="hero">
-      <h1>Welcome to My Kyute Website</h1>
-      <p>Where professional research meets a cute aesthetic.</p>
-      <button id="learn-more">Learn More</button>
+      <h1>Hi, I'm a Ph.D. Student in Computer Science</h1>
+      <p>
+        Working on computer security and privacy at Indiana University
+        Bloomington.
+      </p>
     </section>
 
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
-      <p>Hello! I’m an academic and researcher with a passion for blending professionalism with a joyful design.</p>
+      <p>
+        I am passionate about research and love blending professional work with a
+        cute, distinctive aesthetic.
+      </p>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Explore some of my latest works and research projects.</p>
+    <!-- Research Interests Section -->
+    <section id="research">
+      <h2>Research Interests</h2>
+      <p>
+        I focus on computer security, privacy, and tackling emerging challenges in
+        digital technology.
+      </p>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can reach me at <a href="mailto:example@example.com">example@example.com</a>.</p>
+    <!-- Education and Experience Section -->
+    <section id="education">
+      <h2>Education & Experience</h2>
+      <p>B.Sc. in Computer Science, [Your University]</p>
+      <p>M.Sc. in Computer Science, [Your University]</p>
+      <p>Ph.D. Student at Indiana University Bloomington</p>
     </section>
 
+    <!-- Publications Section -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <article class="publication">
+        <h3>
+          Avara: A Uniform Evaluation System for Perceptibility Analysis Against
+          Adversarial Object Evasion Attacks
+        </h3>
+        <p>
+          Co-authors: Xinyao Ma, <strong>Your Name</strong>, Huadi Zhu, Jean Camp,
+          Ming Li, Xiaojing Liao (ACM CCS 2024)
+        </p>
+      </article>
+      <article class="publication">
+        <h3>
+          Measuring Compliance Implications of Third-party Libraries’ Privacy
+          Label Disclosure Guidelines
+        </h3>
+        <p>
+          Co-authors: Yue Xiao, <strong>Your Name</strong>, Qin Yue, Fares Fahad S
+          Alharbi, Luyi Xing, Xiaojing Liao (ACM CCS 2024)
+        </p>
+      </article>
+      <article class="publication">
+        <h3>
+          iHunter: Hunting Privacy Violations at Scale in the Software Supply
+          Chain on iOS
+        </h3>
+        <p>
+          Co-authors: Dexin Liu, Yue Xiao, <strong>Your Name</strong>, Kaitao Xie,
+          Xiaolong Bai, Shikun Zhang, Luyi Xing (USENIX Security 2024)
+        </p>
+      </article>
+      <article class="publication">
+        <h3>
+          Cquirrel: Continuous Query Processing Over Acyclic Relational Schemas
+        </h3>
+        <p>
+          Co-authors: Qichen Wang, <strong>Your Name</strong>, Danish Alsayed, Ke
+          Yi, Bin Wu, Feifei Li, Chaoqun Zhan (VLDB Endowment, 2021)
+        </p>
+      </article>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 MyKyuteAcademicWebsite. All rights reserved.</p>
+      <p>&copy; 2025 My Academic Website. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
