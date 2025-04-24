@@ -164,6 +164,20 @@ body {
     margin: 0 0 10px;
   }
   
+  /* Publications Section */
+  .awards {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  .awards h3 {
+    margin: 0 0 10px;
+  }
+
   /* Footer */
   footer {
     background: #ffecf0;
