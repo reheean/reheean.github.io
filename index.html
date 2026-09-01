@@ -94,10 +94,12 @@
   /* ---------- Header ---------- */
 
   header.site-header {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 10;
     background: var(--header-bg);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--divider);
   }
@@ -302,9 +304,17 @@
   @media (max-width: 560px) {
     .hero-grid { grid-template-columns: 1fr; }
     .avatar-frame { width: 128px; height: 128px; }
-    nav.site-nav { gap: 14px; }
-    nav.site-nav a { font-size: 0.85rem; }
+    .header-inner { padding: 12px 16px; }
+    nav.site-nav { gap: 10px; }
+    nav.site-nav a { font-size: 0.82rem; margin-right: 10px; }
     .timeline li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  @media (max-width: 360px) {
+    nav.site-nav { gap: 7px; }
+    nav.site-nav a { font-size: 0.76rem; margin-right: 7px; }
+    .theme-toggle { width: 30px; height: 30px; }
+    .theme-toggle svg { width: 14px; height: 14px; }
   }
 </style>
 </head>
@@ -343,7 +353,7 @@
         <div class="hero-critter">
           <svg class="pixel-cat" viewBox="0 0 13 10" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="0" width="1" height="1" fill="var(--cat)"/><rect x="9" y="0" width="1" height="1" fill="var(--cat)"/><rect x="2" y="1" width="1" height="1" fill="var(--cat)"/><rect x="3" y="1" width="1" height="1" fill="var(--cat)"/><rect x="4" y="1" width="1" height="1" fill="var(--cat)"/><rect x="8" y="1" width="1" height="1" fill="var(--cat)"/><rect x="9" y="1" width="1" height="1" fill="var(--cat)"/><rect x="10" y="1" width="1" height="1" fill="var(--cat)"/><rect x="3" y="2" width="1" height="1" fill="var(--cat)"/><rect x="4" y="2" width="1" height="1" fill="var(--cat)"/><rect x="5" y="2" width="1" height="1" fill="var(--cat)"/><rect x="6" y="2" width="1" height="1" fill="var(--cat)"/><rect x="7" y="2" width="1" height="1" fill="var(--cat)"/><rect x="8" y="2" width="1" height="1" fill="var(--cat)"/><rect x="9" y="2" width="1" height="1" fill="var(--cat)"/><rect x="2" y="3" width="1" height="1" fill="var(--cat)"/><rect x="3" y="3" width="1" height="1" fill="var(--cat)"/><rect x="4" y="3" width="1" height="1" fill="var(--cat)"/><rect x="5" y="3" width="1" height="1" fill="var(--cat)"/><rect x="6" y="3" width="1" height="1" fill="var(--cat)"/><rect x="7" y="3" width="1" height="1" fill="var(--cat)"/><rect x="8" y="3" width="1" height="1" fill="var(--cat)"/><rect x="9" y="3" width="1" height="1" fill="var(--cat)"/><rect x="10" y="3" width="1" height="1" fill="var(--cat)"/><rect x="2" y="4" width="1" height="1" fill="var(--cat)"/><rect x="3" y="4" width="1" height="1" fill="var(--cat)"/><rect x="4" y="4" width="1" height="1" fill="var(--cat-eye)"/><rect x="5" y="4" width="1" height="1" fill="var(--cat)"/><rect x="6" y="4" width="1" height="1" fill="var(--cat)"/><rect x="7" y="4" width="1" height="1" fill="var(--cat)"/><rect x="8" y="4" width="1" height="1" fill="var(--cat-eye)"/><rect x="9" y="4" width="1" height="1" fill="var(--cat)"/><rect x="10" y="4" width="1" height="1" fill="var(--cat)"/><rect x="2" y="5" width="1" height="1" fill="var(--cat)"/><rect x="3" y="5" width="1" height="1" fill="var(--cat)"/><rect x="4" y="5" width="1" height="1" fill="var(--cat)"/><rect x="5" y="5" width="1" height="1" fill="var(--cat)"/><rect x="6" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="5" width="1" height="1" fill="var(--cat)"/><rect x="8" y="5" width="1" height="1" fill="var(--cat)"/><rect x="9" y="5" width="1" height="1" fill="var(--cat)"/><rect x="10" y="5" width="1" height="1" fill="var(--cat)"/><rect x="2" y="6" width="1" height="1" fill="var(--cat)"/><rect x="3" y="6" width="1" height="1" fill="var(--cat)"/><rect x="4" y="6" width="1" height="1" fill="var(--cat)"/><rect x="5" y="6" width="1" height="1" fill="var(--cat)"/><rect x="6" y="6" width="1" height="1" fill="var(--cat)"/><rect x="7" y="6" width="1" height="1" fill="var(--cat)"/><rect x="8" y="6" width="1" height="1" fill="var(--cat)"/><rect x="9" y="6" width="1" height="1" fill="var(--cat)"/><rect x="10" y="6" width="1" height="1" fill="var(--cat)"/><rect x="11" y="6" width="1" height="1" fill="var(--cat)"/><rect x="2" y="7" width="1" height="1" fill="var(--cat)"/><rect x="3" y="7" width="1" height="1" fill="var(--cat)"/><rect x="4" y="7" width="1" height="1" fill="var(--cat)"/><rect x="5" y="7" width="1" height="1" fill="var(--cat)"/><rect x="6" y="7" width="1" height="1" fill="var(--cat)"/><rect x="7" y="7" width="1" height="1" fill="var(--cat)"/><rect x="8" y="7" width="1" height="1" fill="var(--cat)"/><rect x="9" y="7" width="1" height="1" fill="var(--cat)"/><rect x="10" y="7" width="1" height="1" fill="var(--cat)"/><rect x="12" y="7" width="1" height="1" fill="var(--cat)"/><rect x="2" y="8" width="1" height="1" fill="var(--cat)"/><rect x="3" y="8" width="1" height="1" fill="var(--cat)"/><rect x="4" y="8" width="1" height="1" fill="var(--cat)"/><rect x="5" y="8" width="1" height="1" fill="var(--cat)"/><rect x="6" y="8" width="1" height="1" fill="var(--cat)"/><rect x="7" y="8" width="1" height="1" fill="var(--cat)"/><rect x="8" y="8" width="1" height="1" fill="var(--cat)"/><rect x="9" y="8" width="1" height="1" fill="var(--cat)"/><rect x="10" y="8" width="1" height="1" fill="var(--cat)"/><rect x="11" y="8" width="1" height="1" fill="var(--cat)"/><rect x="12" y="8" width="1" height="1" fill="var(--cat)"/><rect x="2" y="9" width="1" height="1" fill="var(--cat)"/><rect x="3" y="9" width="1" height="1" fill="var(--cat)"/><rect x="9" y="9" width="1" height="1" fill="var(--cat)"/><rect x="10" y="9" width="1" height="1" fill="var(--cat)"/></svg>
           <span class="hero-critter-label">probably reading a paper somewhere</span>
-          <a class="cv-inline-link" href="CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+          <a class="cv-inline-link" href="Rodoshie_Reheean_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
         </div>
       </div>
     </div>
@@ -362,8 +372,7 @@
     <div class="research-block">
       <span class="status">Ongoing</span>
       <p><strong>Parent-Child Concerns and Opinions on AI-Based Collaborative Supervision Systems</strong></p>
-      <p>Investigating how parents understand and manage their children's online video consumption, and what kinds of support or tools could he; 
-        through interviews with parent-child pairs about viewing habits, involvement, and attitudes toward AI features that summarize or mediate what kids watch.</p>
+      <p>Investigating how parents understand and manage their children's online video consumption, and what kinds of support or tools could help — through interviews with parent-child pairs about viewing habits, involvement, and attitudes toward AI features that summarize or mediate what kids watch.</p>
     </div>
   </section>
 
