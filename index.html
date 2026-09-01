@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodoshie Reheean</title>
+<meta name="description" content="Rodoshie Reheean — PhD student in Computer Science at Indiana University Bloomington, researching human-computer interaction and privacy.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --bg: #F5F0F1;
+    --surface: #FFFFFF;
+    --text: #2A2333;
+    --text-soft: #6B6377;
+    --accent: #4B2E75;
+    --accent-soft: #8B6BAE;
+    --divider: #E6DEF0;
+    --cat: #34293F;
+    --cat-eye: #FFF3DC;
+    --lotus: #C97BA0;
+    --lotus-light: #E7AFC7;
+    --leaf: #6E8F72;
+    --water: #BFD3D8;
+    --shadow: 0 1px 0 rgba(43, 30, 60, 0.05);
+    --header-bg: rgba(245, 240, 241, 0.88);
+    --avatar-bg: #F1E9F7;
+    --accent-hover: #3A2359;
+    --status-border: #B9D4BE;
+    color-scheme: light;
+  }
+
+  html[data-theme="night"] {
+    --bg: #1B1523;
+    --surface: #241B30;
+    --text: #ECE4F5;
+    --text-soft: #B6A9C9;
+    --accent: #C9A6E8;
+    --accent-soft: #9B7FC0;
+    --divider: #362A47;
+    --cat: #EDE4F5;
+    --cat-eye: #2A2038;
+    --lotus: #E39BC0;
+    --lotus-light: #F2C4DC;
+    --leaf: #8FBE9B;
+    --water: #4B6570;
+    --header-bg: rgba(27, 21, 35, 0.86);
+    --avatar-bg: #2E2340;
+    --accent-hover: #DABDF0;
+    --status-border: #4B6E55;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    transition: background 0.35s ease, color 0.35s ease;
+  }
+
+  ::selection { background: var(--lotus-light); color: var(--cat-eye); }
+
+  h1, h2, h3, .display {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  nav.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  nav.site-nav a {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    margin-right: 20px;
+  }
+  nav.site-nav a:hover { color: var(--accent); }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .theme-toggle svg { width: 17px; height: 17px; }
+  .theme-toggle .moon { display: none; }
+  html[data-theme="night"] .theme-toggle .sun { display: none; }
+  html[data-theme="night"] .theme-toggle .moon { display: block; }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    padding: 64px 0 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .avatar-frame {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--divider);
+    background: var(--surface);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--avatar-bg), var(--surface));
+  }
+  .avatar-placeholder span {
+    font-family: "Fraunces", serif;
+    font-size: 2rem;
+    color: var(--accent);
+  }
+
+  .hero-text h1 {
+    font-size: 2.1rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .role-line {
+    color: var(--text-soft);
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+  .role-line a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--divider); }
+  .role-line a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  .bio { max-width: 60ch; color: var(--text); }
+  .bio p { margin: 0 0 14px; }
+  .bio p:last-child { margin-bottom: 0; }
+
+  .hero-critter {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pixel-cat { width: 58px; height: auto; }
+  .hero-critter-label {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    font-style: italic;
+  }
+  .cv-inline-link {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-left: 4px;
+    padding-left: 12px;
+    border-left: 1px solid var(--divider);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: 40px 0; border-top: 1px solid var(--divider); }
+
+  section h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  /* Research interests tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    border: 1px solid var(--divider);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 108px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+  }
+  .timeline li + li { border-top: 1px solid var(--divider); }
+  .timeline .when { color: var(--text-soft); font-size: 0.88rem; padding-top: 2px; }
+  .timeline .what strong { font-weight: 600; }
+  .timeline .what .sub { color: var(--text-soft); font-size: 0.92rem; display: block; margin-top: 2px; }
+
+  /* Honors */
+  .honors { list-style: none; margin: 0; padding: 0; }
+  .honors li { padding: 12px 0; }
+  .honors li + li { border-top: 1px solid var(--divider); }
+  .honors .title { font-weight: 600; }
+  .honors .meta { color: var(--text-soft); font-size: 0.9rem; display: block; margin-top: 2px; }
+
+  /* Current research */
+  .research-block p { margin: 0 0 12px; max-width: 62ch; }
+  .research-block .status {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--leaf);
+    border: 1px solid var(--status-border);
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  /* Contact */
+  .contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; }
+  .contact-list li { margin: 0 4px 4px 0; }
+  .contact-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+  }
+  .contact-list a:hover { color: var(--accent); }
+  .contact-list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--text-soft); }
+  .contact-list a:hover svg { color: var(--accent); }
+
+  /* Footer */
+  footer {
+    padding: 36px 0 48px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+  }
+  .pixel-lotus { width: 60px; height: auto; margin-bottom: 14px; }
+  .pixel-sprig { width: 34px; height: auto; opacity: 0.85; }
+  .footer-divider { display: flex; justify-content: center; gap: 18px; margin-bottom: 16px; }
+  .footer-divider .pixel-sprig:last-child { transform: scaleX(-1); }
+
+  @media (max-width: 560px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .avatar-frame { width: 128px; height: 128px; }
+    nav.site-nav { gap: 14px; }
+    nav.site-nav a { font-size: 0.85rem; }
+    .timeline li { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="site-nav">
+      <a href="https://scholar.google.com/citations?user=_uhED8oAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Switch to night mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke-linecap="round"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.7A8.5 8.5 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top: none;">
+    <div class="hero-grid">
+      <div class="avatar-frame">
+        <div class="avatar-placeholder" id="avatarPlaceholder"><span>RR</span></div>
+        <img src="assets/photo.jpg" alt="Photo of Rodoshie Reheean" id="avatarImg" style="display:none;" onload="this.style.display='block'; document.getElementById('avatarPlaceholder').style.display='none';" onerror="this.remove();">
+      </div>
+      <div class="hero-text">
+        <h1>Rodoshie Reheean</h1>
+        <p class="role-line">PhD student, Computer Science, Indiana University Bloomington · <a href="https://privacy.luddy.indiana.edu/index.html" target="_blank" rel="noopener">IU Privacy Lab</a></p>
+        <div class="bio">
+          <p>I'm a first-year PhD student working with the IU Privacy Lab, sitting somewhere between human-computer interaction and cybersecurity. My current work looks at how parents and kids navigate AI-assisted supervision of what gets watched online.</p>
+          <p>Before Bloomington, I studied at Brac University in Dhaka, where I picked apart ransomware for fun and built fun robots.</p>
+        </div>
+        <div class="hero-critter">
+          <svg class="pixel-cat" viewBox="0 0 13 10" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="0" width="1" height="1" fill="var(--cat)"/><rect x="9" y="0" width="1" height="1" fill="var(--cat)"/><rect x="2" y="1" width="1" height="1" fill="var(--cat)"/><rect x="3" y="1" width="1" height="1" fill="var(--cat)"/><rect x="4" y="1" width="1" height="1" fill="var(--cat)"/><rect x="8" y="1" width="1" height="1" fill="var(--cat)"/><rect x="9" y="1" width="1" height="1" fill="var(--cat)"/><rect x="10" y="1" width="1" height="1" fill="var(--cat)"/><rect x="3" y="2" width="1" height="1" fill="var(--cat)"/><rect x="4" y="2" width="1" height="1" fill="var(--cat)"/><rect x="5" y="2" width="1" height="1" fill="var(--cat)"/><rect x="6" y="2" width="1" height="1" fill="var(--cat)"/><rect x="7" y="2" width="1" height="1" fill="var(--cat)"/><rect x="8" y="2" width="1" height="1" fill="var(--cat)"/><rect x="9" y="2" width="1" height="1" fill="var(--cat)"/><rect x="2" y="3" width="1" height="1" fill="var(--cat)"/><rect x="3" y="3" width="1" height="1" fill="var(--cat)"/><rect x="4" y="3" width="1" height="1" fill="var(--cat)"/><rect x="5" y="3" width="1" height="1" fill="var(--cat)"/><rect x="6" y="3" width="1" height="1" fill="var(--cat)"/><rect x="7" y="3" width="1" height="1" fill="var(--cat)"/><rect x="8" y="3" width="1" height="1" fill="var(--cat)"/><rect x="9" y="3" width="1" height="1" fill="var(--cat)"/><rect x="10" y="3" width="1" height="1" fill="var(--cat)"/><rect x="2" y="4" width="1" height="1" fill="var(--cat)"/><rect x="3" y="4" width="1" height="1" fill="var(--cat)"/><rect x="4" y="4" width="1" height="1" fill="var(--cat-eye)"/><rect x="5" y="4" width="1" height="1" fill="var(--cat)"/><rect x="6" y="4" width="1" height="1" fill="var(--cat)"/><rect x="7" y="4" width="1" height="1" fill="var(--cat)"/><rect x="8" y="4" width="1" height="1" fill="var(--cat-eye)"/><rect x="9" y="4" width="1" height="1" fill="var(--cat)"/><rect x="10" y="4" width="1" height="1" fill="var(--cat)"/><rect x="2" y="5" width="1" height="1" fill="var(--cat)"/><rect x="3" y="5" width="1" height="1" fill="var(--cat)"/><rect x="4" y="5" width="1" height="1" fill="var(--cat)"/><rect x="5" y="5" width="1" height="1" fill="var(--cat)"/><rect x="6" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="5" width="1" height="1" fill="var(--cat)"/><rect x="8" y="5" width="1" height="1" fill="var(--cat)"/><rect x="9" y="5" width="1" height="1" fill="var(--cat)"/><rect x="10" y="5" width="1" height="1" fill="var(--cat)"/><rect x="2" y="6" width="1" height="1" fill="var(--cat)"/><rect x="3" y="6" width="1" height="1" fill="var(--cat)"/><rect x="4" y="6" width="1" height="1" fill="var(--cat)"/><rect x="5" y="6" width="1" height="1" fill="var(--cat)"/><rect x="6" y="6" width="1" height="1" fill="var(--cat)"/><rect x="7" y="6" width="1" height="1" fill="var(--cat)"/><rect x="8" y="6" width="1" height="1" fill="var(--cat)"/><rect x="9" y="6" width="1" height="1" fill="var(--cat)"/><rect x="10" y="6" width="1" height="1" fill="var(--cat)"/><rect x="11" y="6" width="1" height="1" fill="var(--cat)"/><rect x="2" y="7" width="1" height="1" fill="var(--cat)"/><rect x="3" y="7" width="1" height="1" fill="var(--cat)"/><rect x="4" y="7" width="1" height="1" fill="var(--cat)"/><rect x="5" y="7" width="1" height="1" fill="var(--cat)"/><rect x="6" y="7" width="1" height="1" fill="var(--cat)"/><rect x="7" y="7" width="1" height="1" fill="var(--cat)"/><rect x="8" y="7" width="1" height="1" fill="var(--cat)"/><rect x="9" y="7" width="1" height="1" fill="var(--cat)"/><rect x="10" y="7" width="1" height="1" fill="var(--cat)"/><rect x="12" y="7" width="1" height="1" fill="var(--cat)"/><rect x="2" y="8" width="1" height="1" fill="var(--cat)"/><rect x="3" y="8" width="1" height="1" fill="var(--cat)"/><rect x="4" y="8" width="1" height="1" fill="var(--cat)"/><rect x="5" y="8" width="1" height="1" fill="var(--cat)"/><rect x="6" y="8" width="1" height="1" fill="var(--cat)"/><rect x="7" y="8" width="1" height="1" fill="var(--cat)"/><rect x="8" y="8" width="1" height="1" fill="var(--cat)"/><rect x="9" y="8" width="1" height="1" fill="var(--cat)"/><rect x="10" y="8" width="1" height="1" fill="var(--cat)"/><rect x="11" y="8" width="1" height="1" fill="var(--cat)"/><rect x="12" y="8" width="1" height="1" fill="var(--cat)"/><rect x="2" y="9" width="1" height="1" fill="var(--cat)"/><rect x="3" y="9" width="1" height="1" fill="var(--cat)"/><rect x="9" y="9" width="1" height="1" fill="var(--cat)"/><rect x="10" y="9" width="1" height="1" fill="var(--cat)"/></svg>
+          <span class="hero-critter-label">probably reading a paper somewhere</span>
+          <a class="cv-inline-link" href="Rodoshie_Reheean_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research interests</h2>
+    <div class="tags">
+      <span class="tag">Human-Computer Interaction</span>
+      <span class="tag">Cybersecurity</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Current research</h2>
+    <div class="research-block">
+      <span class="status">Ongoing</span>
+      <p><strong>Parent-Child Concerns and Opinions on AI-Based Collaborative Supervision Systems</strong></p>
+      <p>Investigating how parents understand and manage their children's online video consumption, and what kinds of support or tools could help — through interviews with parent-child pairs about viewing habits, involvement, and attitudes toward AI features that summarize or mediate what kids watch.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education &amp; appointments</h2>
+    <ul class="timeline">
+      <li>
+        <span class="when">Aug 2025 –</span>
+        <span class="what">
+          <strong>PhD, Computer Science</strong>
+          <span class="sub">Indiana University Bloomington · Luddy School of Informatics, Computing, and Engineering · advised by Prof. Apu Kapadia</span>
+        </span>
+      </li>
+      <li>
+        <span class="when">2021 – 2025</span>
+        <span class="what">
+          <strong>B.S., Computer Science and Engineering</strong>
+          <span class="sub">Brac University, Dhaka</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Honors &amp; awards</h2>
+    <ul class="honors">
+      <li>
+        <span class="title">Fall 2025 Luddy Doctoral Associate Instructor Fellowship</span>
+        <span class="meta">Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington</span>
+      </li>
+      <li>
+        <span class="title">Best Thesis Award, Fall 2024</span>
+        <span class="meta">Department of Computer Science and Engineering, Brac University — for "Understanding the Economic Impact of Botnets in Bangladesh"</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>
+        <a href="mailto:rreheean@iu.edu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          rreheean@iu.edu
+        </a>
+      </li>
+      <li>
+        <a href="https://orcid.org/0009-0000-7005-044X" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9.2" cy="8.7" r="0.9" fill="currentColor" stroke="none"/><path d="M9.2 11v5.2M12.8 11v5.2M12.8 11a2.6 2.6 0 0 1 0 5.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          ORCID 0009-0000-7005-044X
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?user=_uhED8oAAAAJ&hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 9l10 6 10-6-10-6Z" stroke-linejoin="round"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 9v7" stroke-linecap="round"/></svg>
+          Google Scholar
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/reheean/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10.5v6M7.5 7.8v.01M12 16.5v-3.7c0-1.2.9-1.9 1.9-1.9 1 0 1.6.7 1.6 1.9v3.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          linkedin.com/in/reheean
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/reheean" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          github.com/reheean
+        </a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="pixel-lotus" viewBox="0 0 13 10" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="0" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="1" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="1" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="1" width="1" height="1" fill="var(--lotus)"/><rect x="3" y="2" width="1" height="1" fill="var(--lotus-light)"/><rect x="4" y="2" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="2" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="2" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="2" width="1" height="1" fill="var(--lotus)"/><rect x="8" y="2" width="1" height="1" fill="var(--lotus)"/><rect x="9" y="2" width="1" height="1" fill="var(--lotus-light)"/><rect x="1" y="3" width="1" height="1" fill="var(--lotus-light)"/><rect x="2" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="3" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="4" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="8" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="9" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="10" y="3" width="1" height="1" fill="var(--lotus)"/><rect x="11" y="3" width="1" height="1" fill="var(--lotus-light)"/><rect x="2" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="3" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="4" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="8" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="9" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="10" y="4" width="1" height="1" fill="var(--lotus)"/><rect x="3" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="4" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="8" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="9" y="5" width="1" height="1" fill="var(--lotus)"/><rect x="4" y="6" width="1" height="1" fill="var(--lotus)"/><rect x="5" y="6" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="6" width="1" height="1" fill="var(--lotus)"/><rect x="7" y="6" width="1" height="1" fill="var(--lotus)"/><rect x="8" y="6" width="1" height="1" fill="var(--lotus)"/><rect x="6" y="7" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="8" width="1" height="1" fill="var(--leaf)"/><rect x="5" y="8" width="1" height="1" fill="var(--leaf)"/><rect x="6" y="8" width="1" height="1" fill="var(--leaf)"/><rect x="7" y="8" width="1" height="1" fill="var(--leaf)"/><rect x="8" y="8" width="1" height="1" fill="var(--leaf)"/><rect x="2" y="9" width="1" height="1" fill="var(--water)"/><rect x="3" y="9" width="1" height="1" fill="var(--water)"/><rect x="4" y="9" width="1" height="1" fill="var(--water)"/><rect x="5" y="9" width="1" height="1" fill="var(--water)"/><rect x="6" y="9" width="1" height="1" fill="var(--water)"/><rect x="7" y="9" width="1" height="1" fill="var(--water)"/><rect x="8" y="9" width="1" height="1" fill="var(--water)"/><rect x="9" y="9" width="1" height="1" fill="var(--water)"/><rect x="10" y="9" width="1" height="1" fill="var(--water)"/></svg>
+  <div class="footer-divider">
+    <svg class="pixel-sprig" viewBox="0 0 9 6" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="0" width="1" height="1" fill="var(--leaf)"/><rect x="3" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="5" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="2" y="2" width="1" height="1" fill="var(--leaf)"/><rect x="6" y="2" width="1" height="1" fill="var(--leaf)"/><rect x="3" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="5" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="4" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="5" width="1" height="1" fill="var(--leaf)"/></svg>
+    <svg class="pixel-sprig" viewBox="0 0 9 6" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="0" width="1" height="1" fill="var(--leaf)"/><rect x="3" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="5" y="1" width="1" height="1" fill="var(--leaf)"/><rect x="2" y="2" width="1" height="1" fill="var(--leaf)"/><rect x="6" y="2" width="1" height="1" fill="var(--leaf)"/><rect x="3" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="5" y="3" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="4" width="1" height="1" fill="var(--leaf)"/><rect x="4" y="5" width="1" height="1" fill="var(--leaf)"/></svg>
+  </div>
+  <p>I'm enjoying the uselessness of today, and readying my usefulness for tomorrow.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  toggle.addEventListener('click', () => {
+    const isNight = root.getAttribute('data-theme') === 'night';
+    root.setAttribute('data-theme', isNight ? 'day' : 'night');
+    toggle.setAttribute('aria-pressed', String(!isNight));
+    toggle.setAttribute('aria-label', isNight ? 'Switch to night mode' : 'Switch to day mode');
+  });
+</script>
+
+</body>
+</html>
